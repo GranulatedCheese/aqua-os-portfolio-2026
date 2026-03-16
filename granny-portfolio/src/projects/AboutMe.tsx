@@ -1,3 +1,5 @@
+import headshot from "../assets/headshot_image.jpg";
+
 export default function AboutMe() {
   return (
     <div
@@ -28,7 +30,7 @@ export default function AboutMe() {
         <span style={{ fontSize: "20px" }}>📌</span>
         <span>
           This article is about <b>Daniel Bayate</b>, a Computer Science and
-          Physics student attending UCF.
+          Physics student at the University of Central Florida (UCF).
         </span>
       </div>
 
@@ -82,9 +84,9 @@ export default function AboutMe() {
               </span>
             </div>
             {[
-              ["1", "Early Life"],
+              ["1", "Early life"],
               ["2", "Education"],
-              ["3", "Skills & Technologies"],
+              ["3", "Skills and technologies"],
               ["4", "Projects"],
               ["5", "Contact"],
             ].map(([num, label]) => (
@@ -104,10 +106,11 @@ export default function AboutMe() {
 
           {/* leading para */}
           <p style={{ marginBottom: "12px" }}>
-            <b>Daniel Bayate</b>, born in 2005, South Florida, is an attending
-            student at UCF studying computer science and physics. Daniel is most
-            known for his quick learning and intuitive thinking. He is
-            profficient in several languages including{" "}
+            <b>Daniel Bayate</b> (born 2005) is an American student at the
+            University of Central Florida pursuing degrees in Computer Science
+            and Physics. Bayate is noted for his rapid technical proficiency and
+            intuitive approach to software engineering. He is proficient in
+            several programming languages including{" "}
             <a href="#" style={{ color: "#0645ad" }}>
               Java
             </a>
@@ -121,16 +124,16 @@ export default function AboutMe() {
             </a>
             , and{" "}
             <a href="#" style={{ color: "#0645ad" }}>
-              TypeScript/JavaScripts
+              TypeScript/JavaScript
             </a>
             .
           </p>
 
           <p style={{ marginBottom: "20px" }}>
-            His work is characterized by his interests in fantasy worlds, retro
-            technology, and practical usage of AI tools. This portfolio itself
-            is a demonstration of his development skills, specifically on the
-            frontend side.
+            His body of work is characterized by an interest in fantasy
+            world-building, retro technology, and the practical application of
+            AI tools. This portfolio serves as a demonstration of his frontend
+            development capabilities and UI/UX design.
           </p>
 
           {/* sect: early life */}
@@ -145,21 +148,18 @@ export default function AboutMe() {
               marginBottom: "10px",
             }}
           >
-            Early Life
+            Early life
           </h2>
           <p style={{ marginBottom: "20px" }}>
-            Daniel was born and raised in Sunny South Florida. In his younger
-            years, around the age of 8, his father had gifted him an old laptop,
-            to which Daniel took a major interest in. Around 9 years old, Daniel
-            got the Java version of Minecraft, and inspired by many youtubers at
-            the time, custom modded his client to add new features, blocks, and
-            more.It wouldn't be up until 10 years old that Daniel starts to
-            tinker around with public servers and hosting them. At that time,
-            Daniel learned alot about internet protocols and most of all, using
-            a commandline. Daniel ran his first successful server during that
-            time, with a completely custom map, commands, and plugin. Daniel
-            would continue to express his passion for computers and technology
-            more so all throughout his life.{" "}
+            Bayate was born and raised in South Florida. At the age of eight, he
+            developed a significant interest in computing after receiving a
+            laptop from his father. By age nine, he began modding the{" "}
+            <i>Java Edition</i> of Minecraft, creating custom blocks and
+            gameplay features. At ten, he transitioned to hosting and managing
+            public servers, gaining early experience with internet protocols and
+            command-line interfaces. His first successful server featured a
+            bespoke map, custom commands, and original plugins, establishing a
+            lifelong passion for technological development.
           </p>
 
           {/* sect: edu */}
@@ -180,55 +180,47 @@ export default function AboutMe() {
             style={{
               fontFamily: "Linux Libertine, Georgia, serif",
               fontSize: "16px",
-              fontWeight: "normal",
+              fontWeight: "bold",
               paddingBottom: "3px",
             }}
           >
-            High School
+            Secondary education
           </h3>
-          <p style={{ marginBottom: "2px" }}>
-            Daniel is currently pursing two degree in Physics and Computer
-            Science at the University of Central Florida. Daniel hopes to later
-            down the line continue his studies in physics and achieve a PHD in
-            theoretical physics.
-          </p>
           <p style={{ marginBottom: "8px" }}>
-            During Daniel's time in highschool, he was apart of the Computer
-            Science class, to which he participated in a Hack-a-thon and wrote a
-            program{" "}
-            <a href="#" style={{ color: "#0645ad", fontStyle: "italic" }}>
-              (JavaScript and HTML/CSS)
-            </a>{" "}
-            that converted user inputted text into its respective ASL hand
-            signs, and even offered a minigame to help user's study and learn
-            ASL spelling. Daniel also participated in his schools Robotics team,
-            where he, along with a team, built and programmed robots from
-            scratch to compete in FTC and FRC competitions. Daniel served as the
-            lead programmer for his team, primarily developing the robots
-            control systems in Java. In his senior year, he lead his own FTC
-            team, still serving as the lead programmer and now the head
-            engineer.{" "}
+            During his time in high school, Bayate was an active member of the
+            Computer Science program. He participated in hackathons, notably
+            developing a program using JavaScript, HTML, and CSS that converted
+            text into American Sign Language (ASL) hand signs, including an
+            educational minigame. He also served as the lead programmer for his
+            school's robotics team, designing control systems in Java for FTC
+            and FRC competitions. In his senior year, he spearheaded an FTC team
+            as both lead programmer and head engineer.
           </p>
           <p style={{ marginBottom: "20px" }}>
-            Additionally to Daniel's club participation, he also took several
-            programming related classes during High School. Some courses he took
-            were: Intro to HTML/CSS, Programming with JavaScript{" "}
-            <span style={{ fontStyle: "italic" }}>(AP)</span>, and Fundamentals
-            of Java Programming{" "}
-            <span style={{ fontStyle: "italic" }}>(AP)</span>.
+            His academic curriculum included Advanced Placement (AP) coursework
+            in Computer Science Principles and Computer Science A (Java),
+            alongside introductory courses in web development.
           </p>
 
           <h3
             style={{
               fontFamily: "Linux Libertine, Georgia, serif",
               fontSize: "16px",
-              fontWeight: "normal",
+              fontWeight: "bold",
               paddingBottom: "3px",
             }}
           >
-            College
+            Higher education
           </h3>
-          <p>Stop here for tn</p>
+          <p style={{ marginBottom: "20px" }}>
+            Bayate is currently enrolled at the University of Central Florida,
+            where he is pursuing a dual degree in Physics and Computer Science.
+            His long-term academic goals include obtaining a PhD in theoretical
+            physics. During his undergraduate career, he has completed advanced
+            coursework in C++ and C# programming while expanding his portfolio
+            through complex side projects like <i>Noted.</i> and{" "}
+            <i>Runes & Rivets</i>.
+          </p>
 
           {/* sect: skills */}
           <h2
@@ -242,11 +234,11 @@ export default function AboutMe() {
               marginBottom: "10px",
             }}
           >
-            Skills & Technologies
+            Skills and technologies
           </h2>
           <p style={{ marginBottom: "10px" }}>
-            Daniel Bayate has demonstrated proficiency across a range of
-            programming languages and tools:
+            Bayate has demonstrated proficiency across a diverse range of
+            technical domains:
           </p>
           <table
             style={{
@@ -282,11 +274,11 @@ export default function AboutMe() {
               {[
                 [
                   "Languages",
-                  "Java, C++, Python, TypeScript, JavaScript, HTML/CSS",
+                  "Java, C++, C#, Python, TypeScript, JavaScript, HTML/CSS",
                 ],
-                ["Frameworks", "React, Vite, ETC"],
-                ["Tools", "Git, VS Code, ETC"],
-                ["Concepts", "OOP, Systems Programming, ETC"],
+                ["Frameworks", "React, Vite, FastAPI"],
+                ["Tools", "Git, VS Code, GitHub Copilot"],
+                ["Concepts", "OOP, Systems Programming, CRUD, RESTful APIs"],
               ].map(([cat, tech], i) => (
                 <tr
                   key={cat}
@@ -325,7 +317,45 @@ export default function AboutMe() {
           >
             Projects
           </h2>
-          <p style={{ marginBottom: "20px" }}>Ipsum Lorem Dolor...</p>
+          <h3
+            style={{
+              fontFamily: "Linux Libertine, Georgia, serif",
+              fontSize: "16px",
+              fontWeight: "bold",
+              paddingBottom: "3px",
+            }}
+          >
+            Runes & Rivets
+          </h3>
+          <p style={{ marginBottom: "10px" }}>
+            <i>Runes & Rivets</i> is an immersive fantasy RPG Minecraft
+            modification. Developed using Java and JavaScript, the project was
+            created to address a lack of narrative depth and cohesive
+            world-building in existing fantasy addons. The project aims to
+            capture the atmosphere of high-fantasy literature, such as the works
+            of J.R.R. Tolkien, through complex game mechanics and lore.
+          </p>
+
+          <h3
+            style={{
+              fontFamily: "Linux Libertine, Georgia, serif",
+              fontSize: "16px",
+              fontWeight: "bold",
+              paddingBottom: "3px",
+            }}
+          >
+            Noted.
+          </h3>
+          <p style={{ marginBottom: "20px" }}>
+            <i>Noted.</i> is an AI-powered note-taking platform designed to
+            enhance academic efficiency. Observing the limitations of standard
+            digital note-taking in fast-paced lectures, Bayate developed the
+            platform to integrate Large Language Models (LLMs) like GPT and
+            Gemini directly into the user's canvas. This allows for the
+            automation of repetitive tasks, such as generating definitions or
+            formatting mathematical steps. The platform is currently in
+            development with a full release projected for mid-2026.
+          </p>
 
           {/* sect: contact */}
           <h2
@@ -341,26 +371,36 @@ export default function AboutMe() {
           >
             Contact
           </h2>
-          <p style={{ marginBottom: "8px" }}>
-            Daniel Bayate can be reached through the following channels:
-          </p>
           <ul style={{ paddingLeft: "24px", marginBottom: "20px" }}>
             <li>
               <b>GitHub:</b>{" "}
-              <a href="#" style={{ color: "#0645ad" }}>
-                github.com/mememe
+              <a
+                href="https://github.com/GranulatedCheese"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{ color: "#0645ad" }}
+              >
+                github.com/GranulatedCheese
               </a>
             </li>
             <li>
               <b>LinkedIn:</b>{" "}
-              <a href="#" style={{ color: "#0645ad" }}>
-                linkedin.com/in/mememe
+              <a
+                href="https://www.linkedin.com/in/daniel-bayate/"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{ color: "#0645ad" }}
+              >
+                linkedin.com/in/daniel-bayate
               </a>
             </li>
             <li>
               <b>Email:</b>{" "}
-              <a href="#" style={{ color: "#0645ad" }}>
-                myemail@gmail.com
+              <a
+                href="mailto:danielbayate.dev@gmail.com"
+                style={{ color: "#0645ad" }}
+              >
+                danielbayate.dev@gmail.com
               </a>
             </li>
           </ul>
@@ -383,7 +423,12 @@ export default function AboutMe() {
               "Open Source",
             ].map((cat, i) => (
               <span key={cat}>
-                <a href="#" style={{ color: "#0645ad" }}>
+                <a
+                  href="https://github.com/GranulatedCheese/aqua-os-portfolio-2026"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{ color: "#0645ad" }}
+                >
                   {cat}
                 </a>
                 {i < 4 ? " · " : ""}
@@ -415,7 +460,7 @@ export default function AboutMe() {
             Daniel Bayate
           </div>
 
-          {/* placeholder avatar */}
+          {/* avatar */}
           <div
             style={{
               width: "120px",
@@ -429,17 +474,26 @@ export default function AboutMe() {
               color: "#72777d",
               fontSize: "12px",
               textAlign: "center",
+              overflow: "hidden",
             }}
           >
-            PHOT OF ME
+            <img
+              src={headshot}
+              alt="Daniel Bayate"
+              style={{
+                width: "100%",
+                height: "100%",
+                objectFit: "cover",
+              }}
+            />
           </div>
 
           {[
-            ["Born", "2005, South Florida"],
+            ["Born", "2005 (age 20–21), South Florida"],
             ["Nationality", "Filipino"],
-            ["Education", "UCF"],
-            ["Occupation", "Software Developer"],
-            ["Known for", "This portfolio!!!"],
+            ["Education", "University of Central Florida"],
+            ["Major", "Computer Science and Physics"],
+            ["Occupations", "Software Developer, Quant Researcher"],
           ].map(([label, value]) => (
             <div
               key={label}

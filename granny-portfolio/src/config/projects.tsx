@@ -1,5 +1,6 @@
 import AboutMe from "../projects/AboutMe";
 import type { Project } from "../types";
+import rnrPage from "../assets/runes_and_rivets_curseforge_page.png";
 
 const projects: Project[] = [
   {
@@ -9,10 +10,18 @@ const projects: Project[] = [
     content: <AboutMe />,
   },
   {
-    id: "mc fantasy",
+    id: "runes-and-rivets",
     title: "Runes & Rivets",
     icon: "/src/assets/icons/runesandrivets.png",
-    content: <p>Peepee</p>,
+    content: (
+      <a
+        href="https://www.curseforge.com/minecraft/modpacks/runes-rivets-the-antequest"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <img src={rnrPage} />
+      </a>
+    ),
   },
 ];
 
