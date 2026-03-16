@@ -148,7 +148,7 @@ export default function AboutMe() {
             Early Life
           </h2>
           <p style={{ marginBottom: "20px" }}>
-            Daniel was born and raised in Sunny Sount Florida. In his younger
+            Daniel was born and raised in Sunny South Florida. In his younger
             years, around the age of 8, his father had gifted him an old laptop,
             to which Daniel took a major interest in. Around 9 years old, Daniel
             got the Java version of Minecraft, and inspired by many youtubers at
@@ -435,7 +435,7 @@ export default function AboutMe() {
           </div>
 
           {[
-            ["Born", "2005, Fort Lauderdale, Florida"],
+            ["Born", "2005, South Florida"],
             ["Nationality", "Filipino"],
             ["Education", "UCF"],
             ["Occupation", "Software Developer"],
