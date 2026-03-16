@@ -360,7 +360,7 @@ export default function AboutMe() {
             <li>
               <b>Email:</b>{" "}
               <a href="#" style={{ color: "#0645ad" }}>
-                danbayate@gmail.com
+                myemail@gmail.com
               </a>
             </li>
           </ul>
