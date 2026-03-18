@@ -23,5 +23,12 @@ export interface Project {
   id: string;
   title: string;
   icon: string; // path to icon image in assets
-  content: React.ReactNode;
+  content?: React.ReactNode;
+  url?: string;
+}
+
+export interface Track {
+  id: number;
+  title: string;
+  src: string;
 }

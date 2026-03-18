@@ -2,7 +2,8 @@ import WindowManager from "./components/WindowManager";
 import { useState } from "react";
 import type { OpenWindow } from "./types";
 import Dock from "./components/Dock";
-import backgroundImage from "./assets/background_image.jpg";
+import backgroundImage from "./assets/images/background_image.jpg";
+import MenuBar from "./components/MenuBar";
 
 function App() {
   const [windows, setWindows] = useState<OpenWindow[]>([]);
@@ -56,6 +57,7 @@ function App() {
         overflow: "hidden",
       }}
     >
+      <MenuBar />
       <WindowManager
         windows={windows}
         focusedId={focusedId}

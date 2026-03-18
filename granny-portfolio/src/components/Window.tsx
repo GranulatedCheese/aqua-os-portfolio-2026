@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { Rnd } from "react-rnd";
 import type { WindowProps } from "../types";
@@ -13,6 +14,33 @@ export default function Window({
   isMinimized,
   isMaximized,
 }: WindowProps) {
+  const [pos, setPos] = useState({ x: 100, y: 100 });
+  const [size, setSize] = useState({ width: 600, height: 400 });
+
+  const screenWidth = typeof window !== "undefined" ? window.innerWidth : 1000;
+  const screenHeight = typeof window !== "undefined" ? window.innerHeight : 800;
+
+  const targetX = screenWidth / 2;
+  const targetY = screenHeight;
+
+  const currentCenterX = pos.x + size.width / 2;
+  const currentCenterY = pos.y + size.height / 2;
+
+  const deltaX = targetX - currentCenterX;
+  const deltaY = targetY - currentCenterY;
+
+  const gelButtonBase = {
+    width: 14,
+    height: 14,
+    borderRadius: "50%",
+    cursor: "pointer",
+    position: "relative" as const,
+    zIndex: 9999,
+    pointerEvents: "all" as const,
+    boxShadow:
+      "inset 0px 2px 4px rgba(255,255,255,0.8), inset 0px -2px 4px rgba(0,0,0,0.4), 0px 1px 2px rgba(0,0,0,0.3)",
+  };
+
   return (
     <Rnd
       default={{ x: 100, y: 100, width: 600, height: 400 }}
@@ -21,100 +49,121 @@ export default function Window({
       dragHandleClassName="window-titlebar"
       bounds="window"
       size={isMaximized ? { width: "100vw", height: "100vh" } : undefined}
-      position={isMaximized ? { x: 0, y: 0 } : undefined}
+      position={isMaximized ? { x: 0, y: 22 } : undefined}
+      onDragStop={(_e, d) => setPos({ x: d.x, y: d.y })}
+      onResizeStop={(_e, _direction, ref, _delta, position) => {
+        setSize({
+          width: parseInt(ref.style.width, 10),
+          height: parseInt(ref.style.height, 10),
+        });
+        setPos(position);
+      }}
       style={{
-        zIndex: isFocused ? 10 : 1,
-        pointerEvents: isMinimized ? "none" : "all", // add this
+        zIndex: 9000,
+        pointerEvents: isMinimized ? "none" : "all",
       }}
     >
       <motion.div
         onClick={onFocus}
-        initial={{ scale: 0.8, opacity: 0, y: 40 }}
+        initial={{ scaleX: 0.8, scaleY: 0.8, opacity: 0, y: 40, x: 0 }}
         animate={
           isMinimized
-            ? { scale: 0.2, opacity: 0, y: 600 }
-            : { scale: 1, opacity: 1, y: 0 }
+            ? {
+                scaleX: [1, 0.4, 0.05],
+                scaleY: [1, 0.7, 0.05],
+                x: [0, deltaX * 0.6, deltaX],
+                y: [0, deltaY * 0.4, deltaY],
+                opacity: [1, 1, 0],
+              }
+            : {
+                scaleX: 1,
+                scaleY: 1,
+                x: 0,
+                y: 0,
+                opacity: 1,
+              }
         }
-        transition={{ type: "spring", stiffness: 300, damping: 25 }}
+        transition={
+          isMinimized
+            ? {
+                duration: 0.35,
+                ease: [0.5, 0, 0.2, 1],
+              }
+            : {
+                type: "spring",
+                stiffness: 300,
+                damping: 20,
+              }
+        }
         style={{
           width: "100%",
           height: "100%",
           display: "flex",
           flexDirection: "column",
-          borderRadius: "8px",
+          borderRadius: "6px",
           overflow: "hidden",
           boxShadow: isFocused
-            ? "0 22px 70px rgba(0,0,0,0.5)"
-            : "0 8px 24px rgba(0,0,0,0.3)",
-          border: "1px solid rgba(255,255,255,0.3)",
+            ? "0 16px 40px rgba(0,0,0,0.5), 0 0 0 1px rgba(0,0,0,0.3)"
+            : "0 8px 20px rgba(0,0,0,0.3), 0 0 0 1px rgba(0,0,0,0.2)",
+          background: "#ececec",
+          transformOrigin: "bottom center",
         }}
       >
-        {/* Title bar */}
+        {/* title */}
         <div
           className="window-titlebar"
           style={{
             background: isFocused
-              ? "linear-gradient(180deg, #bebebe 0%, #9a9a9a 50%, #8a8a8a 51%, #b0b0b0 100%)"
-              : "linear-gradient(180deg, #d8d8d8 0%, #c0c0c0 100%)",
-            padding: "6px 10px",
+              ? "linear-gradient(to bottom, #f2f2f2 0%, #e0e0e0 49%, #d4d4d4 51%, #e6e6e6 100%)"
+              : "linear-gradient(to bottom, #e8e8e8 0%, #dadada 49%, #d0d0d0 51%, #dfdfdf 100%)",
+            padding: "4px 8px",
             display: "flex",
             alignItems: "center",
-            gap: "8px",
+            gap: "6px",
             userSelect: "none",
+            borderBottom: "1px solid #777",
+            boxShadow: "inset 0 1px 0 rgba(255, 255, 255, 0.9)",
+            height: "28px",
           }}
         >
-          {/* Traffic lights */}
+          {/* traffic light buttons */}
           <button
             onClick={(e) => {
               e.stopPropagation();
               onClose();
             }}
             style={{
-              width: 13,
-              height: 13,
-              borderRadius: "50%",
-              background:
-                "radial-gradient(circle at 40% 35%, #ff7e7e, #cc0000)",
-              border: "1px solid #a00000",
-              cursor: "pointer",
+              ...gelButtonBase,
+              background: isFocused
+                ? "radial-gradient(circle at 50% 20%, #ff8a84 0%, #ff5f56 40%, #c4181c 100%)"
+                : "radial-gradient(circle at 50% 20%, #d4d4d4 0%, #b5b5b5 40%, #999 100%)",
+              border: isFocused ? "1px solid #a00000" : "1px solid #888",
             }}
           />
           <button
             onClick={(e) => {
               e.stopPropagation();
-              console.log("minimize clicked");
               onMinimize();
             }}
             style={{
-              width: 13,
-              height: 13,
-              borderRadius: "50%",
-              background:
-                "radial-gradient(circle at 40% 35%, #ffe97e, #ccaa00)",
-              border: "1px solid #aa8800",
-              cursor: "pointer",
-              position: "relative",
-              zIndex: 9999,
-              pointerEvents: "all",
+              ...gelButtonBase,
+              background: isFocused
+                ? "radial-gradient(circle at 50% 20%, #ffe17d 0%, #ffbd2e 40%, #d68900 100%)"
+                : "radial-gradient(circle at 50% 20%, #d4d4d4 0%, #b5b5b5 40%, #999 100%)",
+              border: isFocused ? "1px solid #aa8800" : "1px solid #888",
             }}
           />
           <button
             onClick={(e) => {
               e.stopPropagation();
-              console.log("maximize clicked");
               onMaximize();
             }}
             style={{
-              width: 13,
-              height: 13,
-              borderRadius: "50%",
-              background:
-                "radial-gradient(circle at 40% 35%, #7eff7e, #00aa00)",
-              border: "1px solid #008800",
-              cursor: "pointer",
-              position: "relative",
-              zIndex: 9999,
-              pointerEvents: "all",
+              ...gelButtonBase,
+              background: isFocused
+                ? "radial-gradient(circle at 50% 20%, #8af58a 0%, #27c93f 40%, #008800 100%)"
+                : "radial-gradient(circle at 50% 20%, #d4d4d4 0%, #b5b5b5 40%, #999 100%)",
+              border: isFocused ? "1px solid #008800" : "1px solid #888",
             }}
           />
 
@@ -123,24 +172,28 @@ export default function Window({
               flex: 1,
               textAlign: "center",
               fontSize: "13px",
-              fontWeight: "bold",
-              color: isFocused ? "#1a1a1a" : "#666",
-              fontFamily: 'Geneva, "Lucida Grande", sans-serif',
-              marginLeft: "-39px",
+              fontWeight: 500,
+              color: isFocused ? "#111" : "#555",
+              fontFamily: '"Lucida Grande", Geneva, sans-serif',
+              textShadow: "0 1px 0 rgba(255,255,255,0.8)",
+              marginLeft: "-40px",
             }}
           >
             {title}
           </span>
         </div>
 
-        {/* Content */}
+        {/* content */}
         <div
           style={{
             flex: 1,
-            background: "rgba(236, 236, 236, 0.92)",
-            backdropFilter: "blur(12px)",
+            background: "#ffffff",
             overflow: "auto",
             padding: "12px",
+            border: "1px solid #a0a0a0",
+            borderTop: "none",
+            borderBottomRightRadius: "6px",
+            borderBottomLeftRadius: "6px",
           }}
         >
           {children}
