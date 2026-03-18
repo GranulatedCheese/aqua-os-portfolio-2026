@@ -1,6 +1,7 @@
 import AboutMe from "../projects/AboutMe";
 import type { Project } from "../types";
 import rnrPage from "../assets/runes_and_rivets_curseforge_page.png";
+import IFrameComponent from "../components/IFrameComponent";
 
 const projects: Project[] = [
   {
@@ -21,6 +22,17 @@ const projects: Project[] = [
       >
         <img src={rnrPage} />
       </a>
+    ),
+  },
+  {
+    id: "noted",
+    title: "Noted.",
+    icon: "/src/assets/icons/noted.svg",
+    content: (
+      <IFrameComponent
+        src="https://granulatedcheese.github.io/Noted./"
+        title="Noted."
+      />
     ),
   },
 ];
