@@ -3,7 +3,6 @@ import { Rnd } from "react-rnd";
 import type { WindowProps } from "../types";
 
 export default function Window({
-  id,
   title,
   children,
   isFocused,
