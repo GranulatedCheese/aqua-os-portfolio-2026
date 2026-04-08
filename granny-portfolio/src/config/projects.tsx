@@ -39,6 +39,11 @@ const projects: Project[] = [
     icon: `${import.meta.env.BASE_URL}icons/github-invertocat.svg`,
     url: "https://github.com/GranulatedCheese/granny-portfolio",
   },
+  {
+    id: "vicsek-model",
+    title: "Vicsek Simulation.",
+    icon: `${import.meta.env.BASE_URL}icons/streamlit-mark-dark.ico`,
+    url: "https://granny-vicsek-stochastic-simulation.streamlit.app",
+  },
 ];
-
 export default projects;
